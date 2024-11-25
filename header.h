@@ -6,10 +6,10 @@
 /*   By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 22:24:54 by enchevri          #+#    #+#             */
-/*   Updated: 2024/11/22 22:26:24 by enchevri         ###   ########.fr       */
+/*   Updated: 2024/11/25 22:59:45 by enchevri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
+#include <stdio.h>
 
-int	ft_printf(const char *, ...);
+int	ft_printf(const char *format, ...);
