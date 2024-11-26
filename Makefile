@@ -6,7 +6,7 @@
 #    By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 21:35:03 by enchevri          #+#    #+#              #
-#    Updated: 2024/11/26 13:34:56 by enchevri         ###   ########.fr        #
+#    Updated: 2024/11/26 13:40:56 by enchevri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ CFLAGS	= 	-Wall -Wextra -Werror
 NAME	=	libftprintf.a
 
 SRCS =	ft_printf.c \
+		print_format.c \
 		print_char.c \
 		print_digit.c \
 		print_string.c \
