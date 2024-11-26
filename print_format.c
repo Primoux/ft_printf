@@ -6,7 +6,7 @@
 /*   By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 13:40:26 by enchevri          #+#    #+#             */
-/*   Updated: 2024/11/26 13:40:39 by enchevri         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:15:14 by enchevri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,15 @@ int	print_format(char specifier, va_list ap)
 		count += print_char(va_arg(ap, int));
 	else if (specifier == 's')
 		count += print_string(va_arg(ap, char *));
-	else if (specifier == 'd')
-		count += print_digit((long)(va_arg(ap, int)), 10);
-	else if (specifier == 'x')
-		count += print_digit((long)(va_arg(ap, unsigned int)), 16);
+	else if (specifier == 'p')
+		count += print_hexa(va_arg(ap, unsigned long), 16);
+	else if (specifier == 'd' || specifier == 'i')
+		count += print_digit((long)(va_arg(ap, int)), 10, specifier);
+	else if (specifier == 'x' || specifier == 'X')
+		count += print_digit((long)(va_arg(ap, unsigned int)), 16, specifier);
+	else if (specifier == 'u')
+		count += print_digit((unsigned long)(va_arg(ap, unsigned int)), 10,
+				specifier);
 	else
 		count += write(1, &specifier, 1);
 	return (count);

@@ -6,13 +6,11 @@
 /*   By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 22:20:00 by enchevri          #+#    #+#             */
-/*   Updated: 2024/11/26 13:40:23 by enchevri         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:12:12 by enchevri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-
 
 int	ft_printf(const char *format, ...)
 {
@@ -31,8 +29,4 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(ap);
 	return (count);
-}
-int	main(void)
-{
-	ft_printf("Number of bytes : %d\n", ft_printf("%d\n", "412312"));
 }
