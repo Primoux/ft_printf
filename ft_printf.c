@@ -6,31 +6,15 @@
 /*   By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 22:20:00 by enchevri          #+#    #+#             */
-/*   Updated: 2024/11/25 23:28:14 by enchevri         ###   ########.fr       */
+/*   Updated: 2024/11/26 13:16:34 by enchevri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
 
-int	print_char(int c)
-{
-	return (write(1, &c, 1));
-}
-
-int	print_string(char *str)
-{
-	int	count;
-
-	count = 0;
-	while (*str)
-	{
-		print_char((int)*str++);
-		count++;
-	}
-	return (count);
-}
 
 int	print_digit(long n, int base)
 {
@@ -52,6 +36,7 @@ int	print_digit(long n, int base)
 		return (count + print_digit(n % base, base));
 	}
 }
+
 
 int	print_format(char specifier, va_list ap)
 {

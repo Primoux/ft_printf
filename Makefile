@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    MAKEFILE                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 21:35:03 by enchevri          #+#    #+#              #
-#    Updated: 2024/11/22 22:24:38 by enchevri         ###   ########.fr        #
+#    Updated: 2024/11/26 13:34:56 by enchevri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,10 @@ CFLAGS	= 	-Wall -Wextra -Werror
 
 NAME	=	libftprintf.a
 
-SRCS = ft_printf.c
+SRCS =	ft_printf.c \
+		print_char.c \
+		print_digit.c \
+		print_string.c \
 
 OBJS = $(SRCS:.c=.o)
 
@@ -25,13 +28,11 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-
-
-%.o: %.c libftprintf.h
+%.o: %.c $(HEAD)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(OBJS_BONUS)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)

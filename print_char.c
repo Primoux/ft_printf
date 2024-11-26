@@ -1,15 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   print_char.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 22:24:54 by enchevri          #+#    #+#             */
-/*   Updated: 2024/11/25 22:59:45 by enchevri         ###   ########.fr       */
+/*   Created: 2024/11/26 12:21:31 by enchevri          #+#    #+#             */
+/*   Updated: 2024/11/26 13:14:43 by enchevri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "ft_printf.h"
 
-int	ft_printf(const char *format, ...);
+int	print_char(int c)
+{
+	return (write(1, &c, 1));
+}
