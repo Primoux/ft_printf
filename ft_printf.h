@@ -6,7 +6,7 @@
 /*   By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:41:29 by enchevri          #+#    #+#             */
-/*   Updated: 2024/11/26 17:17:25 by enchevri         ###   ########.fr       */
+/*   Updated: 2024/11/27 18:15:07 by enchevri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 # include <stdio.h>
+# include <stdlib.h>
 # include <unistd.h>
 
 int	ft_printf(const char *format, ...);
@@ -23,5 +24,6 @@ int	print_string(char *str);
 int	print_format(char specifier, va_list ap);
 int	print_digit(long n, int base, char c);
 int	print_hexa(unsigned long n, unsigned long base);
+int	print_null();
 
 #endif

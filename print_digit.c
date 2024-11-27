@@ -6,7 +6,7 @@
 /*   By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 12:36:17 by enchevri          #+#    #+#             */
-/*   Updated: 2024/11/26 17:14:28 by enchevri         ###   ########.fr       */
+/*   Updated: 2024/11/27 18:21:59 by enchevri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,3 @@ int	print_digit(long n, int base, char c)
 		return (count + print_digit(n % base, base, c));
 	}
 }
-
-

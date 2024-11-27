@@ -6,7 +6,7 @@
 /*   By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 12:35:20 by enchevri          #+#    #+#             */
-/*   Updated: 2024/11/26 13:15:37 by enchevri         ###   ########.fr       */
+/*   Updated: 2024/11/27 18:27:59 by enchevri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ int	print_string(char *str)
 	int	count;
 
 	count = 0;
-	while (*str)
+	if (!str)
 	{
-		print_char((int)*str++);
-		count++;
+		count += write(1, "(null)", 6);
+		return (count);
 	}
+	while (*str)
+		count += print_char((int)*str++);
 	return (count);
 }
