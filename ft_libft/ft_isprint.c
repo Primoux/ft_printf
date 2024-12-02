@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_hexa.c                                       :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 17:14:41 by enchevri          #+#    #+#             */
-/*   Updated: 2024/11/26 20:35:18 by enchevri         ###   ########.fr       */
+/*   Created: 2024/11/05 15:17:57 by enchevri          #+#    #+#             */
+/*   Updated: 2024/11/21 16:00:04 by enchevri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	print_hexa(unsigned long n, unsigned long base)
+int	ft_isprint(int c)
 {
-	int		count;
-	char	*symbols;
-
-	count = 0;
-	symbols = "0123456789abcdef";
-	if (n < 0)
-	{
-		write(1, "-", 1);
-		return (print_hexa(-n, base) + 1);
-	}
-	else if (n < base)
-		return (print_char(symbols[n]));
-	else
-	{
-		count = print_hexa(n / base, base);
-		return (count + print_hexa(n % base, base));
-	}
+	if (c >= ' ' && c <= '~')
+		return (1);
+	return (0);
 }
