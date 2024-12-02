@@ -6,26 +6,11 @@
 /*   By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 13:40:26 by enchevri          #+#    #+#             */
-/*   Updated: 2024/11/27 19:17:20 by enchevri         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:33:07 by enchevri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static int	print_pointer(void *ptr)
-{
-	int	count;
-
-	count = 0;
-	if (!ptr)
-		count += write(1, "(nil)", 5);
-	else
-	{
-		count += write(1, "0x", 2);
-		count += print_hexa((unsigned long)ptr, 16);
-	}
-	return (count);
-}
 
 int	print_format(char specifier, va_list ap)
 {

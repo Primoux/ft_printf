@@ -6,7 +6,7 @@
 /*   By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:41:29 by enchevri          #+#    #+#             */
-/*   Updated: 2024/11/27 19:18:38 by enchevri         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:41:20 by enchevri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	print_char(int c);
 int	print_string(char *str);
 int	print_format(char specifier, va_list ap);
 int	print_digit(long n, int base, char c);
-int	print_hexa(unsigned long n, unsigned long base);
+int	print_hexa(unsigned long n);
+int	print_pointer(void *ptr);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 21:35:03 by enchevri          #+#    #+#              #
-#    Updated: 2024/11/27 19:18:21 by enchevri         ###   ########.fr        #
+#    Updated: 2024/12/02 13:35:44 by enchevri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRCS =	ft_printf.c \
 		print_char.c \
 		print_digit.c \
 		print_string.c \
-		print_hexa.c \
+		print_pointer.c \
 
 OBJS = $(SRCS:.c=.o)
 

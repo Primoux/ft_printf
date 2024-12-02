@@ -6,7 +6,7 @@
 /*   By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 22:20:00 by enchevri          #+#    #+#             */
-/*   Updated: 2024/11/27 18:22:10 by enchevri         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:26:43 by enchevri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,3 @@ int	ft_printf(const char *format, ...)
 	va_end(ap);
 	return (count);
 }
-
-// int	main(void)
-// {
-// 	ft_printf("%p\n", "NULL");
-// }
