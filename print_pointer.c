@@ -6,7 +6,7 @@
 /*   By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 17:14:41 by enchevri          #+#    #+#             */
-/*   Updated: 2024/12/02 13:38:59 by enchevri         ###   ########.fr       */
+/*   Updated: 2024/12/04 21:16:03 by enchevri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,12 @@
 
 int	print_pointer(void *ptr)
 {
-	int	count;
-
-	count = 0;
 	if (!ptr)
-		count += write(1, "(nil)", 5);
+		return (write(1, "(nil)", 5));
 	else
 	{
-		count += write(1, "0x", 2);
-		count += print_hexa((unsigned long)ptr);
+		return (write(1, "0x", 2) + print_hexa((unsigned long)ptr));
 	}
-	return (count);
 }
 
 int	print_hexa(unsigned long n)
@@ -34,13 +29,8 @@ int	print_hexa(unsigned long n)
 
 	count = 0;
 	symbols = "0123456789abcdef";
-	if (n < 0)
-	{
-		write(1, "-", 1);
-		return (print_hexa(-n) + 1);
-	}
-	else if (n < 16)
-		return (print_char(symbols[n]));
+	if (n < 16)
+		return (ft_putchar_fd(symbols[n], 1));
 	else
 	{
 		count = print_hexa(n / 16);

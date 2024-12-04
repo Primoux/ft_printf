@@ -6,7 +6,7 @@
 /*   By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 12:36:17 by enchevri          #+#    #+#             */
-/*   Updated: 2024/12/02 13:31:26 by enchevri         ###   ########.fr       */
+/*   Updated: 2024/12/03 15:15:04 by enchevri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	print_digit(long n, int base, char c)
 		return (print_digit(-n, base, c) + 1);
 	}
 	else if (n < base)
-		return (print_char(symbols[n]));
+		return (ft_putchar_fd(symbols[n], 1));
 	else
 	{
 		count = print_digit(n / base, base, c);

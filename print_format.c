@@ -6,7 +6,7 @@
 /*   By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 13:40:26 by enchevri          #+#    #+#             */
-/*   Updated: 2024/12/02 13:33:07 by enchevri         ###   ########.fr       */
+/*   Updated: 2024/12/04 22:18:58 by enchevri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ int	print_format(char specifier, va_list ap)
 
 	count = 0;
 	if (specifier == 'c')
-		count += print_char(va_arg(ap, int));
+		count += ft_putchar_fd(va_arg(ap, int), 1);
 	else if (specifier == 's')
-		count += print_string(va_arg(ap, char *));
+		count += ft_putstr_fd(va_arg(ap, char *), 1);
 	else if (specifier == 'p')
 		count += print_pointer(va_arg(ap, void *));
 	else if (specifier == 'd' || specifier == 'i')
-		count += print_digit((long)(va_arg(ap, int)), 10, specifier);
+		count += print_digit((va_arg(ap, int)), 10, specifier);
 	else if (specifier == 'x' || specifier == 'X')
-		count += print_digit((long)(va_arg(ap, unsigned int)), 16, specifier);
+		count += print_digit((va_arg(ap, unsigned int)), 16, specifier);
 	else if (specifier == 'u')
-		count += print_digit((unsigned long)(va_arg(ap, unsigned int)), 10,
+		count += print_digit((va_arg(ap, unsigned int)), 10,
 				specifier);
 	else
 		count += write(1, &specifier, 1);

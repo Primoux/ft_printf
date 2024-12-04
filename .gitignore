@@ -52,5 +52,6 @@ Mkfile.old
 dkms.conf
 *.json
 *.vscode
+main.c
 
 # End of https://mrkandreev.name/snippets/gitignore-generator/#C

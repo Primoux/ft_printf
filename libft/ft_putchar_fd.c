@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 12:21:31 by enchevri          #+#    #+#             */
-/*   Updated: 2024/11/26 13:14:43 by enchevri         ###   ########.fr       */
+/*   Created: 2024/11/17 17:55:58 by enchevri          #+#    #+#             */
+/*   Updated: 2024/12/03 15:13:42 by enchevri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	print_char(int c)
+int	ft_putchar_fd(int c, int fd)
 {
-	return (write(1, &c, 1));
+	return (write(fd, &c, 1));
 }

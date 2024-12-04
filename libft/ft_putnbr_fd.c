@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/17 18:15:07 by enchevri          #+#    #+#             */
-/*   Updated: 2024/11/21 23:00:01 by enchevri         ###   ########.fr       */
+/*   Created: 2024/11/17 18:18:42 by enchevri          #+#    #+#             */
+/*   Updated: 2024/12/04 21:26:10 by enchevri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
-void	ft_putendl_fd(char *s, int fd)
+int	ft_putnbr_fd(int n, int fd)
 {
-	if (!s)
+	char	c;
+	int		count;
+
+	count = 0;
+	if (n == INT_MIN)
 	{
-		return ;
+		count += write(fd, "-2147483648", 11);
+		return (count);
 	}
-	while (*s)
+	if (n < 0)
 	{
-		write(fd, s++, 1);
+		count += write(fd, "-", 1);
+		n = -n;
 	}
-	write(fd, "\n", 1);
+	if (n >= 10)
+	{
+		count += ft_putnbr_fd(n / 10, fd);
+	}
+	c = (n % 10) + '0';
+	count += write(fd, &c, 1);
+	return (count);
 }

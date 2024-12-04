@@ -1,44 +1,39 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/11/21 21:35:03 by enchevri          #+#    #+#              #
-#    Updated: 2024/12/02 13:35:44 by enchevri         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+.PHONY: all clean fclean re
 
-CC     = 	cc
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -I $(LIBFT_DIR)
 
-CFLAGS	= 	-Wall -Wextra -Werror
+NAME = libftprintf.a
 
-NAME	=	libftprintf.a
-
-SRCS =	ft_printf.c \
-		print_format.c \
-		print_char.c \
-		print_digit.c \
-		print_string.c \
-		print_pointer.c \
+SRCS = ft_printf.c \
+	print_digit.c \
+	print_format.c \
+	print_pointer.c \
 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+LIBFT_DIR = ./libft
+LIBFT = $(LIBFT_DIR)/libft.a
 
-%.o: %.c $(HEAD)
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_DIR)
+
+$(NAME): $(LIBFT) $(OBJS)
+	cp $(LIBFT) $(NAME)
+	ar rc $(NAME) $(OBJS)
+	ranlib $(NAME)
+
+%.o: %.c ft_printf.h ./libft/*.c ./libft/libft.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
+	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
+	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
-
-.PHONY: all re fclean clean
