@@ -17,15 +17,15 @@ all: $(NAME)
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-$(LIBFT):
+$(LIBFT): ./libft/*.c ./libft/libft.h
 	$(MAKE) -C $(LIBFT_DIR)
 
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME): $(LIBFT) $(OBJS) Makefile $(LIBFT_DIR)/Makefile
 	cp $(LIBFT) $(NAME)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
-%.o: %.c ft_printf.h ./libft/*.c ./libft/libft.h
+%.o: %.c ft_printf.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

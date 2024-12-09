@@ -56,7 +56,7 @@ OBJS_BONUS = $(SRCS_BONUS:.c=.o) $(OBJS)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) Makefile
 	ar rcs $(NAME) $(OBJS)
 
 bonus: .bonus
