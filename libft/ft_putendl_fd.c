@@ -6,7 +6,7 @@
 /*   By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:15:07 by enchevri          #+#    #+#             */
-/*   Updated: 2024/12/04 22:04:49 by enchevri         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:49:51 by enchevri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 
 int	ft_putendl_fd(char *s, int fd)
 {
-	int	count;
+	int	count1;
+	int	count2;
 
-	count = 0;
 	if (!s)
 	{
-		return (write(1, "(null)", 6));
+		return (write(fd, "(null)", 6));
 	}
-	while (*s)
-	{
-		count += write(fd, s++, 1);
-	}
-	count += write(fd, "\n", 1);
-	return (count);
+	count2 = write(fd, s, ft_strlen(s));
+	if (count2 == -1)
+		return (-1);
+	count1 = write(fd, "\n", 1);
+	if (count1 == -1)
+		return (-1);
+	return (count1 + count2);
 }

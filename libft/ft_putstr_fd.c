@@ -6,7 +6,7 @@
 /*   By: enchevri <enchevri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:10:20 by enchevri          #+#    #+#             */
-/*   Updated: 2024/12/04 22:32:39 by enchevri         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:51:36 by enchevri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,18 @@
 
 int	ft_putstr_fd(char *s, int fd)
 {
+	int	count;
+	int	write_ret;
+
+	count = 0;
 	if (!s)
 		return (write(1, "(null)", 6));
-	return (write(fd, s, ft_strlen(s)));
+	while (s[count])
+	{
+		write_ret = write(fd, &s[count], 1);
+		if (write_ret == -1)
+			return (-1);
+		count++;
+	}
+	return (count);
 }

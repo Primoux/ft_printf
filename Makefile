@@ -31,6 +31,7 @@ $(NAME): $(LIBFT) $(OBJS) Makefile $(LIBFT_DIR)/Makefile
 clean:
 	rm -f $(OBJS)
 	$(MAKE) -C $(LIBFT_DIR) clean
+	$(MAKE) -C $(LIBFT_DIR) fclean
 
 fclean: clean
 	rm -f $(NAME)
